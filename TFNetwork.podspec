@@ -9,9 +9,6 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = "7.1"
   s.source       = { :git => "https://github.com/TimeFaceCoder/TFNetwork.git"}
   s.source_files  = "TFNetwork/TFNetwork/**/*.{h,m,c}"
-  s.resource_bundles = {
-    'TFLibraryResource' => ['Pod/Assets/*.png']
-  }
   s.requires_arc = true
   s.dependency 'MPMessagePack', :git=> 'https://github.com/TimeFaceCoder/MPMessagePack.git'
   s.dependency 'AFNetworking'
