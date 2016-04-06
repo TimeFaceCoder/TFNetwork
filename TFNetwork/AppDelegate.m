@@ -20,8 +20,9 @@
     // Override point for customization after application launch.
     TFNetworkConfig *config = [TFNetworkConfig sharedInstance];
     config.baseUrl = @"http://timefaceapi.timeface.cn/timefaceapi";
-    config.cdnUrl = @"http://img1.timeface.cn";
+    
     NSString *appVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+    
     TFUrlArgumentsFilter *filter = [TFUrlArgumentsFilter filterWithArguments:@{@"appversion":appVersion}];
     [config addUrlFilter:filter];
     return YES;

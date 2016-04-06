@@ -51,6 +51,7 @@
 
 /* Begin PBXFileReference section */
 		213B8D2E5271A02E3BD03986 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B03133111CB49E07005E4E3D /* TFNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFNetwork.h; sourceTree = "<group>"; };
 		B05F06331C996AEF0048BB13 /* TFNetwork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TFNetwork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B05F06371C996AEF0048BB13 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B05F06391C996AEF0048BB13 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -231,6 +232,7 @@
 				B05F068D1C9A9D5B0048BB13 /* NSData+TFNGZIP.h */,
 				B05F068E1C9A9D5B0048BB13 /* NSData+TFNGZIP.m */,
 				B09DD41A1C9ABF17008F6B5A /* TFRequestProtocol.h */,
+				B03133111CB49E07005E4E3D /* TFNetwork.h */,
 			);
 			path = TFNetwork;
 			sourceTree = "<group>";
