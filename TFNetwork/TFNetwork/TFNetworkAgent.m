@@ -234,11 +234,14 @@
     TFNLog(@"Finished Request: %@", NSStringFromClass([request class]));
     id object = responseObject;
     request.error = error;
-    //检测是否需要GZIP解压缩
-    NSString *contentEncoding = [[(NSHTTPURLResponse *)sessionDataTask.response allHeaderFields] objectForKey:@"Content-Encoding"];
-    if ([contentEncoding containsString:@"gzip"]) {
-        //gzip 解压缩
-        object = [responseObject tfn_gunzippedData];
+    if (request.requestSerializerType == TFRequestSerializerTypeHTTP) {
+        //http
+        //检测是否需要GZIP解压缩
+        NSString *contentEncoding = [[(NSHTTPURLResponse *)sessionDataTask.response allHeaderFields] objectForKey:@"Content-Encoding"];
+        if ([contentEncoding containsString:@"gzip"]) {
+            //gzip 解压缩
+            object = [responseObject tfn_gunzippedData];
+        }
     }
     if (request.requestSerializerType == TFRequestSerializerTypeMsgPack) {
         NSError *error = nil;
