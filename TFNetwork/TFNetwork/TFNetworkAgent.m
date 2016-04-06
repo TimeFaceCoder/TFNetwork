@@ -248,7 +248,7 @@
         //解析msg pack
         request.responseObject = [MPMessagePackReader readData:object error:&error];
         if (error) {
-            
+            request.responseObject = responseObject;
         }
     }
     else {
