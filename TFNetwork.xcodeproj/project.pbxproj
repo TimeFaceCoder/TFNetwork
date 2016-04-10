@@ -51,7 +51,6 @@
 
 /* Begin PBXFileReference section */
 		213B8D2E5271A02E3BD03986 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		B03133111CB49E07005E4E3D /* TFNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFNetwork.h; sourceTree = "<group>"; };
 		B05F06331C996AEF0048BB13 /* TFNetwork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TFNetwork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B05F06371C996AEF0048BB13 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B05F06391C996AEF0048BB13 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -97,6 +96,7 @@
 		B09DD41C1C9AC7D7008F6B5A /* RegisterUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterUser.m; sourceTree = "<group>"; };
 		B09DD41E1C9AD432008F6B5A /* TFUrlArgumentsFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFUrlArgumentsFilter.h; sourceTree = "<group>"; };
 		B09DD41F1C9AD432008F6B5A /* TFUrlArgumentsFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFUrlArgumentsFilter.m; sourceTree = "<group>"; };
+		B0E82FD81CBA217800655B66 /* TFNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFNetwork.h; sourceTree = "<group>"; };
 		B5172462E095D1F05FBB9294 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		CF9198138FB7E7BCD30DD0CA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -211,6 +211,7 @@
 		B05F06691C996CFB0048BB13 /* TFNetwork */ = {
 			isa = PBXGroup;
 			children = (
+				B0E82FD81CBA217800655B66 /* TFNetwork.h */,
 				B05F066B1C996D090048BB13 /* TFBaseRequest.h */,
 				B05F066C1C996D090048BB13 /* TFBaseRequest.m */,
 				B05F066E1C996D2B0048BB13 /* TFBatchRequest.h */,
@@ -232,7 +233,6 @@
 				B05F068D1C9A9D5B0048BB13 /* NSData+TFNGZIP.h */,
 				B05F068E1C9A9D5B0048BB13 /* NSData+TFNGZIP.m */,
 				B09DD41A1C9ABF17008F6B5A /* TFRequestProtocol.h */,
-				B03133111CB49E07005E4E3D /* TFNetwork.h */,
 			);
 			path = TFNetwork;
 			sourceTree = "<group>";
