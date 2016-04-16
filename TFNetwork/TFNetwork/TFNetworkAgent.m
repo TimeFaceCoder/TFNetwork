@@ -106,6 +106,7 @@
         }
     }
     
+    TFNLog(@"header - %@\n url - %@\n param - %@", headerFieldValueDictionary, url, param);
     // request.requestOperation 部分功能缺失
     if (method == TFRequestMethodGet) {
         request.sessionDataTask = [_manager GET:url
