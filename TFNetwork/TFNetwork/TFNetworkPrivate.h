@@ -27,6 +27,10 @@ FOUNDATION_EXPORT void TFNLog(NSString *format, ...) NS_FORMAT_FUNCTION(1,2);
 
 + (NSString *)appVersionString;
 
++ (NSString*)urlEncode:(NSString*)str;
+
++ (NSString *)urlParametersStringFromParameters:(NSDictionary *)parameters;
+
 @end
 
 @interface TFBaseRequest (RequestAccessory)

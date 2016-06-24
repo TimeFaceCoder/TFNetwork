@@ -72,6 +72,22 @@
     TFRequestMethod method = [request requestMethod];
     NSString *url = [self buildRequestUrl:request];
     id param = request.requestArgument;
+    //参数添加编码
+    if ([param isKindOfClass:[NSString class]]) {
+        param = [TFNetworkPrivate urlEncode:param];
+    }
+    else if ([param isKindOfClass:[NSDictionary class]]) {
+        NSMutableDictionary *tempParamDic = [NSMutableDictionary dictionaryWithDictionary:param];
+        for (NSString *key in param) {
+            if ([param[key] isKindOfClass:[NSString class]]) {
+                NSString *value = param[key];
+                value = [TFNetworkPrivate urlEncode:value];
+                [tempParamDic setObject:value forKey:key];
+            };
+           
+        }
+        param = [NSDictionary dictionaryWithDictionary:tempParamDic];
+    }
     AFConstructingBlock constructingBlock = [request constructingBodyBlock];
     
     if (request.requestSerializerType == TFRequestSerializerTypeHTTP) {
