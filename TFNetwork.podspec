@@ -9,6 +9,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = "8.0"
   s.source       = { :git => "https://github.com/TimeFaceCoder/TFNetwork.git"}
   s.source_files  = "TFNetwork/TFNetwork/**/*.{h,m,c}"
+  s.public_header_files = 'TFNetwork/TFNetwork/**/*.h'
   s.requires_arc = true
   s.dependency 'MPMessagePack'
   s.dependency 'AFNetworking'
