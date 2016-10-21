@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'TFNetwork_Example' do
+  pod 'TFNetwork', :path => '../'
+
+  target 'TFNetwork_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
