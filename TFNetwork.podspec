@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'TFNetwork'
-  s.version          = '0.1.0'
+  s.version          = '0.1.2'
   s.summary          = '时光流影底层网络框架'
 
 # This description is used to generate tags and improve search results.
@@ -21,9 +21,11 @@ Pod::Spec.new do |s|
   s.homepage         = 'https://github.com/TimeFaceCoder/TFNetwork'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Melvin' => 'yangmin@timeface.cn' }
-  s.source           = { :git => 'https://github.com/TimeFaceCoder/TFNetwork.git' }
+  s.source           = { :git => 'https://github.com/TimeFaceCoder/TFNetwork.git', :tag => s.version}
 
   s.ios.deployment_target = '8.0'
+
+  s.platform     = :ios, '8.0'
 
   s.source_files = 'TFNetwork/Classes/**/*'
 
@@ -31,6 +33,8 @@ Pod::Spec.new do |s|
     'TFNetwork/Classes/TFNetwork.h',
     'TFNetwork/Classes/TFRequest.h',
     'TFNetwork/Classes/TFNetworkConfig.h',
+    'TFNetwork/Classes/TFBaseRequest.h',
+    'TFNetwork/Classes/TFRequestProtocol.h',
     'TFNetwork/Classes/TFNetworkAgent.h'
     ]
   s.requires_arc = true
