@@ -26,6 +26,12 @@ typedef NS_ENUM(NSInteger , TFRequestSerializerType) {
     TFRequestSerializerTypeMsgPack
 };
 
+typedef NS_ENUM(NSUInteger, TFResponseSerializerType) {
+    TFResponseSerializerTypeHTTP,
+    TFResponseSerializerTypeJSON,
+    TFResponseSerializerTypeMsgPack,
+};
+
 
 /// error code kTFNetworkErrorCode
 
@@ -188,6 +194,12 @@ typedef void(^TFRequestCompletionBlock)(__kindof TFBaseRequest *request);
  *  @return @See TFRequestSerializerType
  */
 - (TFRequestSerializerType)requestSerializerType;
+/**
+ *  返回的SerializerType
+ *
+ *  @return @See TFResponseSerializerType
+ */
+- (TFResponseSerializerType)responseSerializerType;
 
 /**
  *  请求的Server用户名和密码

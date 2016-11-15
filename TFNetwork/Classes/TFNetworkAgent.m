@@ -89,15 +89,20 @@
         param = [NSDictionary dictionaryWithDictionary:tempParamDic];
     }
     AFConstructingBlock constructingBlock = [request constructingBodyBlock];
-    
+    //请求
     if (request.requestSerializerType == TFRequestSerializerTypeHTTP) {
         _manager.requestSerializer = [AFHTTPRequestSerializer serializer];
-        _manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     } else if (request.requestSerializerType == TFRequestSerializerTypeJSON) {
         _manager.requestSerializer = [AFJSONRequestSerializer serializer];
-        _manager.responseSerializer = [AFJSONResponseSerializer serializer];
     } else if (request.requestSerializerType == TFRequestSerializerTypeMsgPack) {
         _manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    }
+    //返回
+    if (request.responseSerializerType == TFResponseSerializerTypeHTTP) {
+        _manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    }
+    else if (request.responseSerializerType == TFResponseSerializerTypeJSON) {
+        _manager.responseSerializer = [AFJSONResponseSerializer serializer];
     }
     
     _manager.requestSerializer.timeoutInterval = [request requestTimeoutInterval];

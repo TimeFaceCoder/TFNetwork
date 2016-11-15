@@ -58,6 +58,10 @@ NSString *const kTFNetworkErrorDomain      = @"cn.timeface.base.network";
     return TFRequestSerializerTypeHTTP;
 }
 
+- (TFResponseSerializerType)responseSerializerType {
+    return TFResponseSerializerTypeHTTP;
+}
+
 - (NSArray *)requestAuthorizationHeaderFieldArray {
     return nil;
 }
