@@ -36,7 +36,8 @@ Pod::Spec.new do |s|
     'TFNetwork/Classes/TFBaseRequest.h',
     'TFNetwork/Classes/TFRequestProtocol.h',
     'TFNetwork/Classes/TFNetworkAgent.h',
-    'TFNetwork/Classes/TFBatchRequest.h'
+    'TFNetwork/Classes/TFBatchRequest.h',
+    'TFNetwork/Classes/TFChainRequest.h'
     ]
   s.requires_arc = true
   s.dependency 'MPMessagePack'
