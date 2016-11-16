@@ -256,7 +256,7 @@
     TFNLog(@"Finished Request: %@", NSStringFromClass([request class]));
     id object = responseObject;
     request.error = error;
-    if (request.requestSerializerType == TFRequestSerializerTypeHTTP) {
+    if (request.responseSerializerType == TFResponseSerializerTypeHTTP) {
         //http
         //检测是否需要GZIP解压缩
         NSString *contentEncoding = [[(NSHTTPURLResponse *)sessionDataTask.response allHeaderFields] objectForKey:@"Content-Encoding"];
@@ -265,7 +265,7 @@
             object = [responseObject tfn_gunzippedData];
         }
     }
-    if (request.requestSerializerType == TFRequestSerializerTypeMsgPack) {
+    if (request.responseSerializerType == TFResponseSerializerTypeMsgPack) {
         NSError *error = nil;
         //解析msg pack
         request.responseObject = [MPMessagePackReader readData:object error:&error];
