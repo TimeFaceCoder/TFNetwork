@@ -23,6 +23,7 @@ typedef NS_ENUM(NSInteger , TFRequestMethod) {
 typedef NS_ENUM(NSInteger , TFRequestSerializerType) {
     TFRequestSerializerTypeHTTP = 0,
     TFRequestSerializerTypeJSON,
+    TFRequestSerializerTypeGzip,
     TFRequestSerializerTypeMsgPack
 };
 

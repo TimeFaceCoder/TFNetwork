@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'FDD9EAF0C88DC3349B5D8E06DA101B65'
+               BlueprintIdentifier = 'DC2293488866DBA64BB5B7F676D7D907'
                BlueprintName = 'TFNetwork'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'TFNetwork.framework'>

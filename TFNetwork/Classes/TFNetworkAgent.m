@@ -11,6 +11,7 @@
 #import "TFNetworkPrivate.h"
 #import <MPMessagePack/MPMessagePack.h>
 #import "NSData+TFNGZIP.h"
+#import "AFgzipRequestSerializer.h"
 
 @implementation TFNetworkAgent {
     
@@ -96,6 +97,8 @@
         _manager.requestSerializer = [AFJSONRequestSerializer serializer];
     } else if (request.requestSerializerType == TFRequestSerializerTypeMsgPack) {
         _manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    } else if (request.requestSerializerType == TFRequestSerializerTypeGzip) {
+        _manager.requestSerializer = [AFgzipRequestSerializer serializer];
     }
     //返回
     if (request.responseSerializerType == TFResponseSerializerTypeHTTP) {

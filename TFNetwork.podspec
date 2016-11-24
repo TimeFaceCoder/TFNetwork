@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'TFNetwork'
-  s.version          = '0.1.7'
+  s.version          = '0.1.8'
   s.summary          = '时光流影底层网络框架'
 
 # This description is used to generate tags and improve search results.
@@ -32,8 +32,10 @@ Pod::Spec.new do |s|
   s.public_header_files = [
     'TFNetwork/Classes/*.h'
     ]
+  s.library = 'z'
   s.requires_arc = true
   s.dependency 'MPMessagePack'
+  s.dependency 'Godzippa'
   s.dependency 'AFNetworking'
 
 end

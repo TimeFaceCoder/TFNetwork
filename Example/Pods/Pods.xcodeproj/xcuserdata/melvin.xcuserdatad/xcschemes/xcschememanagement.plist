@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Godzippa.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>MPMessagePack.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,32 +42,37 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0106D4A44AF31AB2D126EA5B2812A9F7</key>
+		<key>1F30F41E2AFFA6FF03C153311FF382E2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>15FCFD2B37BD818CB506A0C3F0ECB5C0</key>
+		<key>34C0A681D3284E12A6ACC1D2261C00D1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1C3436CEA5C3D39764C5F54374794ECB</key>
+		<key>76D94E92EAB7A80731C883DDFBE92E44</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A369F782656700DFE018559A979798C9</key>
+		<key>A1DECD301AEEF07E7F1822D76C6B7CCE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DE479E4186454105FB6CA9FAEA62AF0D</key>
+		<key>CF671F7E57B92905F1CC91D036D6B4A7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FDD9EAF0C88DC3349B5D8E06DA101B65</key>
+		<key>DC2293488866DBA64BB5B7F676D7D907</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E9517B7E4A0FDF0F96960B2C56E52C00</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -1,6 +1,6 @@
 {
   "name": "TFNetwork",
-  "version": "0.1.0",
+  "version": "0.1.7",
   "summary": "时光流影底层网络框架",
   "homepage": "https://github.com/TimeFaceCoder/TFNetwork",
   "license": {
@@ -18,14 +18,15 @@
   },
   "source_files": "TFNetwork/Classes/**/*",
   "public_header_files": [
-    "TFNetwork/Classes/TFNetwork.h",
-    "TFNetwork/Classes/TFRequest.h",
-    "TFNetwork/Classes/TFNetworkConfig.h",
-    "TFNetwork/Classes/TFNetworkAgent.h"
+    "TFNetwork/Classes/*.h"
   ],
+  "libraries": "z",
   "requires_arc": true,
   "dependencies": {
     "MPMessagePack": [
+
+    ],
+    "Godzippa": [
 
     ],
     "AFNetworking": [

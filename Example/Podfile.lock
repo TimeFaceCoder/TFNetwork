@@ -15,10 +15,12 @@ PODS:
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
   - GHODictionary (1.1.0)
+  - Godzippa (1.1.0)
   - MPMessagePack (1.3.12):
     - GHODictionary
-  - TFNetwork (0.1.0):
+  - TFNetwork (0.1.7):
     - AFNetworking
+    - Godzippa
     - MPMessagePack
 
 DEPENDENCIES:
@@ -31,9 +33,10 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   GHODictionary: 225e042596a4b3d5b66b2b24250086b2f95514af
+  Godzippa: 21621e8ddc2f1521db473a72b48148c3f0e79d76
   MPMessagePack: 078f8c3aed25079bac89003391fdb71f44bcf37a
-  TFNetwork: 4bbf581382773c62985381c610d79a8f0bde947d
+  TFNetwork: a328e7ae2a7e63a21ac599474ea3604fa71f9fc7
 
-PODFILE CHECKSUM: 75dea016be3b80aa6d28eea3005936406cac9c66
+PODFILE CHECKSUM: a1c1e7afc2e3b7e0d7c9ff54ca640db7daa651c3
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.1.1
