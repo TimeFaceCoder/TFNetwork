@@ -3,6 +3,7 @@
 #endif
 
 #import "AFgzipRequestSerializer.h"
+#import "AFGzipResponseSerializer.h"
 #import "NSData+TFNGZIP.h"
 #import "TFBaseRequest.h"
 #import "TFBatchRequest.h"

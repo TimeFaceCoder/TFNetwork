@@ -110,7 +110,7 @@
         _manager.responseSerializer = [AFJSONResponseSerializer serializer];
     }
     else if (request.responseSerializerType == TFResponseSerializerTypeGzip) {
-        _manager.responseSerializer = [AFGzipResponseSerializer serializer];
+        _manager.responseSerializer = [AFGzipResponseSerializer serializerWithReadingOptions:(NSJSONReadingOptions)0];
     }
     
     _manager.requestSerializer.timeoutInterval = [request requestTimeoutInterval];
