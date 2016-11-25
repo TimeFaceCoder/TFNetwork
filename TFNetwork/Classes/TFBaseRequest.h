@@ -30,6 +30,7 @@ typedef NS_ENUM(NSInteger , TFRequestSerializerType) {
 typedef NS_ENUM(NSUInteger, TFResponseSerializerType) {
     TFResponseSerializerTypeHTTP,
     TFResponseSerializerTypeJSON,
+    TFResponseSerializerTypeGzip,
     TFResponseSerializerTypeMsgPack,
 };
 

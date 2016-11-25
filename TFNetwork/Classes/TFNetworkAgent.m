@@ -11,7 +11,9 @@
 #import "TFNetworkPrivate.h"
 #import <MPMessagePack/MPMessagePack.h>
 #import "NSData+TFNGZIP.h"
+#import <Godzippa/NSData+Godzippa.h>
 #import "AFgzipRequestSerializer.h"
+#import "AFGzipResponseSerializer.h"
 
 @implementation TFNetworkAgent {
     
@@ -98,7 +100,7 @@
     } else if (request.requestSerializerType == TFRequestSerializerTypeMsgPack) {
         _manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     } else if (request.requestSerializerType == TFRequestSerializerTypeGzip) {
-        _manager.requestSerializer = [AFgzipRequestSerializer serializer];
+        _manager.requestSerializer = [AFgzipRequestSerializer serializerWithSerializer:[AFJSONRequestSerializer serializer]];
     }
     //返回
     if (request.responseSerializerType == TFResponseSerializerTypeHTTP) {
@@ -106,6 +108,9 @@
     }
     else if (request.responseSerializerType == TFResponseSerializerTypeJSON) {
         _manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    }
+    else if (request.responseSerializerType == TFResponseSerializerTypeGzip) {
+        _manager.responseSerializer = [AFGzipResponseSerializer serializer];
     }
     
     _manager.requestSerializer.timeoutInterval = [request requestTimeoutInterval];

@@ -90,7 +90,8 @@
 		AB9E0F903C8463BCFAEF7361E08E940B /* MPDispatchRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 275EA2724E690DAF8F9FE85C76D71DCD /* MPDispatchRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AC64034B9585145FFF34224C7DA86C83 /* NSDictionary+MPMessagePack.h in Headers */ = {isa = PBXBuildFile; fileRef = ED273D00FBE563DF279B4BCBA0B5C7B4 /* NSDictionary+MPMessagePack.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AE976B0E8E3DD81E4F49DBEF19D3C0AD /* AFURLSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = AB1821A53F9BD1F95BF60992E13EAD49 /* AFURLSessionManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B03C08631DE6858700803581 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B03C08621DE6858700803581 /* libz.tbd */; };
+		B03C08661DE7198800803581 /* AFGzipResponseSerializer.h in Headers */ = {isa = PBXBuildFile; fileRef = B03C08641DE7198800803581 /* AFGzipResponseSerializer.h */; };
+		B03C08671DE7198800803581 /* AFGzipResponseSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = B03C08651DE7198800803581 /* AFGzipResponseSerializer.m */; };
 		B1706B08774C2AF51A63DCCC38B9BFF4 /* TFNetworkAgent.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D01F6459B7CBB60B8C4ECFEAE979469 /* TFNetworkAgent.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B24325620A0B574C883A96718CE21A19 /* Godzippa-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 86891B76D865F28225EB2160B110508F /* Godzippa-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B25520A754A2FF49E5BE503269EC7BBC /* MPMessagePack-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2678416F4AE855E0497B0C280C97615A /* MPMessagePack-dummy.m */; };
@@ -307,7 +308,8 @@
 		AC2E8A4DD04CBDE46EEEDE9D6661110B /* TFChainRequest.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = TFChainRequest.h; sourceTree = "<group>"; };
 		AC7003290CEE935EC667E0E82A99A3CD /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImageView+AFNetworking.h"; path = "UIKit+AFNetworking/UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		AD6A29B25FDDD13FF1AAE1DEAE73BA10 /* Pods-TFNetwork_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TFNetwork_Example-frameworks.sh"; sourceTree = "<group>"; };
-		B03C08621DE6858700803581 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.1.sdk/usr/lib/libz.tbd; sourceTree = DEVELOPER_DIR; };
+		B03C08641DE7198800803581 /* AFGzipResponseSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFGzipResponseSerializer.h; sourceTree = "<group>"; };
+		B03C08651DE7198800803581 /* AFGzipResponseSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFGzipResponseSerializer.m; sourceTree = "<group>"; };
 		B6DFFF73248BC36B38FB13DFC0352D29 /* AFAutoPurgingImageCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFAutoPurgingImageCache.h; path = "UIKit+AFNetworking/AFAutoPurgingImageCache.h"; sourceTree = "<group>"; };
 		B706A7702197A0730E9330356DFFEC17 /* AFSecurityPolicy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFSecurityPolicy.h; path = AFNetworking/AFSecurityPolicy.h; sourceTree = "<group>"; };
 		B70E497918E06E1D7FFA3027397128EA /* MPMessagePack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MPMessagePack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -369,7 +371,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B03C08631DE6858700803581 /* libz.tbd in Frameworks */,
 				8D5E9D6CB3D667B671BA3B24DBB721F7 /* AFNetworking.framework in Frameworks */,
 				27E062EF1462EA13BCA65BE6ED662B96 /* Foundation.framework in Frameworks */,
 				6FEAD11154BA1E9E0723E653369D67A1 /* GHODictionary.framework in Frameworks */,
@@ -462,6 +463,8 @@
 			children = (
 				E113399D3C2A74F50631E15698043783 /* AFgzipRequestSerializer.h */,
 				458C1F72F395FC6D6D0992F1B9ECE670 /* AFgzipRequestSerializer.m */,
+				B03C08641DE7198800803581 /* AFGzipResponseSerializer.h */,
+				B03C08651DE7198800803581 /* AFGzipResponseSerializer.m */,
 				8FE8F0D6E2F0FF05BE759F7FA0F3E513 /* NSData+TFNGZIP.h */,
 				F3E1CA60373726D2DBBC0986286AE21C /* NSData+TFNGZIP.m */,
 				34A2A44A021427249AAA3D06180EE30B /* TFBaseRequest.h */,
@@ -671,7 +674,6 @@
 		A702A34F6FD1F9839000D62AEDA1F902 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B03C08621DE6858700803581 /* libz.tbd */,
 				04D17C2BB187A48E161A5B5443FEF364 /* AFNetworking.framework */,
 				2BA34F7EABAF3B9302E2F0FC0BF7CDA9 /* GHODictionary.framework */,
 				C40D13541825D338E5975B847915A5DB /* Godzippa.framework */,
@@ -834,6 +836,7 @@
 				0A1A84F62D951914DD2E37F1B7322738 /* TFBaseRequest.h in Headers */,
 				6F015574D76B411839AB201D86A21345 /* TFBatchRequest.h in Headers */,
 				5E73E723474969F17568AFA2D8C5D91D /* TFBatchRequestAgent.h in Headers */,
+				B03C08661DE7198800803581 /* AFGzipResponseSerializer.h in Headers */,
 				56CF00B8B9DE1368CB4AC62B650B2448 /* TFChainRequest.h in Headers */,
 				7C73420A9A4366905F5B889CAC971B34 /* TFChainRequestAgent.h in Headers */,
 				8EDAF4028F87F1A2EC78C59EADEA97B7 /* TFNetwork-umbrella.h in Headers */,
@@ -1169,6 +1172,7 @@
 				376F28B73A2F2AB0A9F23156986FD605 /* TFChainRequest.m in Sources */,
 				E323754CCABC9ABB02C2909974C2CB86 /* TFChainRequestAgent.m in Sources */,
 				930763D7080BB3E0F3E68ACA3AEE24BD /* TFNetwork-dummy.m in Sources */,
+				B03C08671DE7198800803581 /* AFGzipResponseSerializer.m in Sources */,
 				E9AC880EDE6F9D4648700AD6B8E8E8CE /* TFNetworkAgent.m in Sources */,
 				17AECF26198616736697CDDFA2AE370F /* TFNetworkConfig.m in Sources */,
 				8C45E3FCE68813D51FF3D3D86C480C25 /* TFNetworkPrivate.m in Sources */,
@@ -1321,6 +1325,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D0F31F652732C621F87C60CE6E7D6423 /* TFNetwork.xcconfig */;
 			buildSettings = {
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -1422,6 +1427,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D0F31F652732C621F87C60CE6E7D6423 /* TFNetwork.xcconfig */;
 			buildSettings = {
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -1524,6 +1530,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0748C6ABD95A8497AA9C6A880A0F62D7 /* Godzippa.xcconfig */;
 			buildSettings = {
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -1656,6 +1663,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0748C6ABD95A8497AA9C6A880A0F62D7 /* Godzippa.xcconfig */;
 			buildSettings = {
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";

@@ -18,7 +18,7 @@ PODS:
   - Godzippa (1.1.0)
   - MPMessagePack (1.3.12):
     - GHODictionary
-  - TFNetwork (0.1.7):
+  - TFNetwork (0.1.8):
     - AFNetworking
     - Godzippa
     - MPMessagePack
@@ -35,7 +35,7 @@ SPEC CHECKSUMS:
   GHODictionary: 225e042596a4b3d5b66b2b24250086b2f95514af
   Godzippa: 21621e8ddc2f1521db473a72b48148c3f0e79d76
   MPMessagePack: 078f8c3aed25079bac89003391fdb71f44bcf37a
-  TFNetwork: a328e7ae2a7e63a21ac599474ea3604fa71f9fc7
+  TFNetwork: 6eb066cdc690c8d4b94eb000f9f5028aa21b57a4
 
 PODFILE CHECKSUM: a1c1e7afc2e3b7e0d7c9ff54ca640db7daa651c3
 
