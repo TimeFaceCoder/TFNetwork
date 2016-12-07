@@ -1,6 +1,6 @@
 {
   "name": "TFNetwork",
-  "version": "0.1.8",
+  "version": "0.2.0",
   "summary": "时光流影底层网络框架",
   "homepage": "https://github.com/TimeFaceCoder/TFNetwork",
   "license": {
@@ -24,9 +24,6 @@
   "requires_arc": true,
   "dependencies": {
     "MPMessagePack": [
-
-    ],
-    "Godzippa": [
 
     ],
     "AFNetworking": [

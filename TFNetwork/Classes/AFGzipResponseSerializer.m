@@ -7,7 +7,7 @@
 //
 
 #import "AFGzipResponseSerializer.h"
-#import <Godzippa/Godzippa.h>
+#import "NSData+TFNGZIP.h"
 
 
 static NSError * AFErrorWithUnderlyingError(NSError *error, NSError *underlyingError) {

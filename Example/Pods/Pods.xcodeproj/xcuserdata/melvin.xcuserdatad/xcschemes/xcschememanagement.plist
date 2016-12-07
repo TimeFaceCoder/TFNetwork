@@ -14,11 +14,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Godzippa.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>MPMessagePack.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -47,12 +42,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>34C0A681D3284E12A6ACC1D2261C00D1</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>76D94E92EAB7A80731C883DDFBE92E44</key>
+		<key>8A24BA92BB0CFE1B4C059C3418313654</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -67,7 +57,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DC2293488866DBA64BB5B7F676D7D907</key>
+		<key>E21FF14FC773900955B143765D711475</key>
 		<dict>
 			<key>primary</key>
 			<true/>

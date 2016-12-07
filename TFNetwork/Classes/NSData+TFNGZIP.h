@@ -8,11 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
+extern NSString * const TFNzippaZlibErrorDomain;
+
+
 @interface NSData (TFNGZIP)
 
-- (nullable NSData *)tfn_gzippedDataWithCompressionLevel:(float)level;
-- (nullable NSData *)tfn_gzippedData;
-- (nullable NSData *)tfn_gunzippedData;
-- (BOOL)tfn_isGzippedData;
-
+- (NSData *)dataByGZipCompressingWithError:(NSError * __autoreleasing *)error;
+- (NSData *)dataByGZipCompressingAtLevel:(int)level
+                              windowSize:(int)windowBits
+                             memoryLevel:(int)memLevel
+                                strategy:(int)strategy
+                                   error:(NSError * __autoreleasing *)error;
+- (NSData *)dataByGZipDecompressingDataWithError:(NSError * __autoreleasing *)error;
+- (NSData *)dataByGZipDecompressingDataWithWindowSize:(int)windowBits
+                                                error:(NSError * __autoreleasing *)error;
 @end

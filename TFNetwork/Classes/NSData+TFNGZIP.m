@@ -10,123 +10,135 @@
 #import <zlib.h>
 #import <dlfcn.h>
 
+static const int kTFNzippaChunkSize = 1024;
+static const int kTFNzippaDefaultMemoryLevel = 8;
+static const int kTFNzippaDefaultWindowBits = 15;
+static const int kTFNzippaDefaultWindowBitsWithGZipHeader = 16 + kTFNzippaDefaultWindowBits;
 
-#pragma clang diagnostic ignored "-Wcast-qual"
+NSString * const TFNzippaZlibErrorDomain = @"cn.timeface.zlib.error";
+
 @implementation NSData (TFNGZIP)
 
-static void *libzOpen()
-{
-    static void *libz;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        libz = dlopen("/usr/lib/libz.dylib", RTLD_LAZY);
-    });
-    return libz;
+- (NSData *)dataByGZipCompressingWithError:(NSError * __autoreleasing *)error {
+    return [self dataByGZipCompressingAtLevel:Z_DEFAULT_COMPRESSION windowSize:kTFNzippaDefaultWindowBitsWithGZipHeader memoryLevel:kTFNzippaDefaultMemoryLevel strategy:Z_DEFAULT_STRATEGY error:error];
 }
 
-- (NSData *)tfn_gzippedDataWithCompressionLevel:(float)level
+- (NSData *)dataByGZipCompressingAtLevel:(int)level
+                              windowSize:(int)windowBits
+                             memoryLevel:(int)memLevel
+                                strategy:(int)strategy
+                                   error:(NSError * __autoreleasing *)error
 {
-    if (self.length == 0 || [self tfn_isGzippedData])
-    {
+    if ([self length] == 0) {
         return self;
     }
     
-    void *libz = libzOpen();
-    int (*deflateInit2_)(z_streamp, int, int, int, int, int, const char *, int) =
-    (int (*)(z_streamp, int, int, int, int, int, const char *, int))dlsym(libz, "deflateInit2_");
-    int (*deflate)(z_streamp, int) = (int (*)(z_streamp, int))dlsym(libz, "deflate");
-    int (*deflateEnd)(z_streamp) = (int (*)(z_streamp))dlsym(libz, "deflateEnd");
+    z_stream zStream;
+    bzero(&zStream, sizeof(z_stream));
     
-    z_stream stream;
-    stream.zalloc = Z_NULL;
-    stream.zfree = Z_NULL;
-    stream.opaque = Z_NULL;
-    stream.avail_in = (uint)self.length;
-    stream.next_in = (Bytef *)(void *)self.bytes;
-    stream.total_out = 0;
-    stream.avail_out = 0;
+    zStream.zalloc = Z_NULL;
+    zStream.zfree = Z_NULL;
+    zStream.opaque = Z_NULL;
+    zStream.next_in = (Bytef *)[self bytes];
+    zStream.avail_in = (unsigned int)[self length];
+    zStream.total_out = 0;
     
-    static const NSUInteger ChunkSize = 16384;
-    
-    NSMutableData *output = nil;
-    int compression = (level < 0.0f)? Z_DEFAULT_COMPRESSION: (int)(roundf(level * 9));
-    if (deflateInit2(&stream, compression, Z_DEFLATED, 31, 8, Z_DEFAULT_STRATEGY) == Z_OK)
-    {
-        output = [NSMutableData dataWithLength:ChunkSize];
-        while (stream.avail_out == 0)
-        {
-            if (stream.total_out >= output.length)
-            {
-                output.length += ChunkSize;
-            }
-            stream.next_out = (uint8_t *)output.mutableBytes + stream.total_out;
-            stream.avail_out = (uInt)(output.length - stream.total_out);
-            deflate(&stream, Z_FINISH);
+    OSStatus status;
+    if ((status = deflateInit2(&zStream, level, Z_DEFLATED, windowBits, memLevel, strategy)) != Z_OK) {
+        if (error) {
+            NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Failed deflateInit", nil) forKey:NSLocalizedDescriptionKey];
+            *error = [[NSError alloc] initWithDomain:TFNzippaZlibErrorDomain code:status userInfo:userInfo];
         }
-        deflateEnd(&stream);
-        output.length = stream.total_out;
+        
+        return nil;
     }
     
-    return output;
+    NSMutableData *compressedData = [NSMutableData dataWithLength:kTFNzippaChunkSize];
+    
+    do {
+        if ((status == Z_BUF_ERROR) || (zStream.total_out == [compressedData length])) {
+            [compressedData increaseLengthBy:kTFNzippaChunkSize];
+        }
+        
+        zStream.next_out = (Bytef*)[compressedData mutableBytes] + zStream.total_out;
+        zStream.avail_out = (unsigned int)([compressedData length] - zStream.total_out);
+        
+        status = deflate(&zStream, Z_FINISH);
+    } while ((status == Z_OK) || (status == Z_BUF_ERROR));
+    
+    deflateEnd(&zStream);
+    
+    if ((status != Z_OK) && (status != Z_STREAM_END)) {
+        if (error) {
+            NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Error deflating payload", nil) forKey:NSLocalizedDescriptionKey];
+            *error = [[NSError alloc] initWithDomain:TFNzippaZlibErrorDomain code:status userInfo:userInfo];
+        }
+        
+        return nil;
+    }
+    
+    [compressedData setLength:zStream.total_out];
+    
+    return compressedData;
 }
 
-- (NSData *)tfn_gzippedData
-{
-    return [self tfn_gzippedDataWithCompressionLevel:-1.0f];
+- (NSData *)dataByGZipDecompressingDataWithError:(NSError * __autoreleasing *)error {
+    return [self dataByGZipDecompressingDataWithWindowSize:kTFNzippaDefaultWindowBitsWithGZipHeader error:error];
 }
 
-- (NSData *)tfn_gunzippedData
+- (NSData *)dataByGZipDecompressingDataWithWindowSize:(int)windowBits
+                                                error:(NSError * __autoreleasing *)error
 {
-    if (self.length == 0 || ![self tfn_isGzippedData])
-    {
+    if ([self length] == 0) {
         return self;
     }
     
-    void *libz = libzOpen();
-    int (*inflateInit2_)(z_streamp, int, const char *, int) =
-    (int (*)(z_streamp, int, const char *, int))dlsym(libz, "inflateInit2_");
-    int (*inflate)(z_streamp, int) = (int (*)(z_streamp, int))dlsym(libz, "inflate");
-    int (*inflateEnd)(z_streamp) = (int (*)(z_streamp))dlsym(libz, "inflateEnd");
+    z_stream zStream;
+    bzero(&zStream, sizeof(z_stream));
     
-    z_stream stream;
-    stream.zalloc = Z_NULL;
-    stream.zfree = Z_NULL;
-    stream.avail_in = (uint)self.length;
-    stream.next_in = (Bytef *)self.bytes;
-    stream.total_out = 0;
-    stream.avail_out = 0;
+    zStream.zalloc = Z_NULL;
+    zStream.zfree = Z_NULL;
+    zStream.opaque = Z_NULL;
+    zStream.avail_in = (unsigned int)[self length];
+    zStream.next_in = (Byte *)[self bytes];
     
-    NSMutableData *output = nil;
-    if (inflateInit2(&stream, 47) == Z_OK)
-    {
-        int status = Z_OK;
-        output = [NSMutableData dataWithCapacity:self.length * 2];
-        while (status == Z_OK)
-        {
-            if (stream.total_out >= output.length)
-            {
-                output.length += self.length / 2;
-            }
-            stream.next_out = (uint8_t *)output.mutableBytes + stream.total_out;
-            stream.avail_out = (uInt)(output.length - stream.total_out);
-            status = inflate (&stream, Z_SYNC_FLUSH);
+    OSStatus status;
+    if ((status = inflateInit2(&zStream, windowBits)) != Z_OK) {
+        if (error) {
+            NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Failed inflateInit", nil) forKey:NSLocalizedDescriptionKey];
+            *error = [[NSError alloc] initWithDomain:TFNzippaZlibErrorDomain code:status userInfo:userInfo];
         }
-        if (inflateEnd(&stream) == Z_OK)
-        {
-            if (status == Z_STREAM_END)
-            {
-                output.length = stream.total_out;
-            }
-        }
+        
+        return nil;
     }
     
-    return output;
+    NSUInteger estimatedLength = (NSUInteger)((double)[self length] * 1.5);
+    NSMutableData *decompressedData = [NSMutableData dataWithLength:estimatedLength];
+    
+    do {
+        if ((status == Z_BUF_ERROR) || (zStream.total_out == [decompressedData length])) {
+            [decompressedData increaseLengthBy:estimatedLength / 2];
+        }
+        
+        zStream.next_out = (Bytef*)[decompressedData mutableBytes] + zStream.total_out;
+        zStream.avail_out = (unsigned int)([decompressedData length] - zStream.total_out);
+        
+        status = inflate(&zStream, Z_FINISH);
+    } while ((status == Z_OK) || (status == Z_BUF_ERROR));
+    
+    inflateEnd(&zStream);
+    
+    if ((status != Z_OK) && (status != Z_STREAM_END)) {
+        if (error) {
+            NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Error inflating payload", nil) forKey:NSLocalizedDescriptionKey];
+            *error = [[NSError alloc] initWithDomain:TFNzippaZlibErrorDomain code:status userInfo:userInfo];
+        }
+        
+        return nil;
+    }
+    
+    [decompressedData setLength:zStream.total_out];
+    
+    return decompressedData;
 }
-
-- (BOOL)tfn_isGzippedData
-{
-    const UInt8 *bytes = (const UInt8 *)self.bytes;
-    return (self.length >= 2 && bytes[0] == 0x1f && bytes[1] == 0x8b);
-}
-
 @end

@@ -86,14 +86,12 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/AFNetworking/AFNetworking.framework"
   install_framework "$BUILT_PRODUCTS_DIR/GHODictionary/GHODictionary.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/Godzippa/Godzippa.framework"
   install_framework "$BUILT_PRODUCTS_DIR/MPMessagePack/MPMessagePack.framework"
   install_framework "$BUILT_PRODUCTS_DIR/TFNetwork/TFNetwork.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/AFNetworking/AFNetworking.framework"
   install_framework "$BUILT_PRODUCTS_DIR/GHODictionary/GHODictionary.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/Godzippa/Godzippa.framework"
   install_framework "$BUILT_PRODUCTS_DIR/MPMessagePack/MPMessagePack.framework"
   install_framework "$BUILT_PRODUCTS_DIR/TFNetwork/TFNetwork.framework"
 fi

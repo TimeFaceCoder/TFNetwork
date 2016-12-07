@@ -35,7 +35,6 @@ Pod::Spec.new do |s|
   s.library = 'z'
   s.requires_arc = true
   s.dependency 'MPMessagePack'
-  s.dependency 'Godzippa'
   s.dependency 'AFNetworking'
 
 end

@@ -2,7 +2,7 @@
 #import <UIKit/UIKit.h>
 #endif
 
-#import "AFgzipRequestSerializer.h"
+#import "AFGzipRequestSerializer.h"
 #import "AFGzipResponseSerializer.h"
 #import "NSData+TFNGZIP.h"
 #import "TFBaseRequest.h"
