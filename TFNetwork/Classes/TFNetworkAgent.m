@@ -11,7 +11,6 @@
 #import "TFNetworkPrivate.h"
 #import <MPMessagePack/MPMessagePack.h>
 #import "NSData+TFNGZIP.h"
-#import <Godzippa/NSData+Godzippa.h>
 #import "AFGzipRequestSerializer.h"
 #import "AFGzipResponseSerializer.h"
 
@@ -270,7 +269,8 @@
         NSString *contentEncoding = [[(NSHTTPURLResponse *)sessionDataTask.response allHeaderFields] objectForKey:@"Content-Type"];
         if ([contentEncoding containsString:@"x-tf-gzip-json"]) {
             //gzip 解压缩
-            object = [responseObject tfn_gunzippedData];
+            NSError *compressionError = nil;
+            object = [responseObject dataByGZipDecompressingDataWithError:&compressionError];
         }
     }
     if (request.responseSerializerType == TFResponseSerializerTypeMsgPack) {

@@ -7,7 +7,7 @@
 //
 
 #import "AFGzipRequestSerializer.h"
-#import <Godzippa/Godzippa.h>
+#import "NSData+TFNGZIP.h"
 
 
 
@@ -42,7 +42,6 @@
     
     if (!serializationError && mutableRequest.HTTPBody) {
         NSError *compressionError = nil;
-//        NSData *compressedData = [mutableRequest.HTTPBody tfn_gzippedData];
         NSData *compressedData = [mutableRequest.HTTPBody dataByGZipCompressingWithError:&compressionError];
         
         if (compressedData && !compressionError) {
