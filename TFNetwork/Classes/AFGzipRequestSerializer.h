@@ -8,7 +8,7 @@
 
 #import <AFNetworking/AFNetworking.h>
 
-@interface AFgzipRequestSerializer : AFHTTPRequestSerializer
+@interface AFGzipRequestSerializer : AFHTTPRequestSerializer
 
 @property (readonly, nonatomic, strong) id <AFURLRequestSerialization> serializer;
 

@@ -12,7 +12,7 @@
 #import <MPMessagePack/MPMessagePack.h>
 #import "NSData+TFNGZIP.h"
 #import <Godzippa/NSData+Godzippa.h>
-#import "AFgzipRequestSerializer.h"
+#import "AFGzipRequestSerializer.h"
 #import "AFGzipResponseSerializer.h"
 
 @implementation TFNetworkAgent {
@@ -100,7 +100,7 @@
     } else if (request.requestSerializerType == TFRequestSerializerTypeMsgPack) {
         _manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     } else if (request.requestSerializerType == TFRequestSerializerTypeGzip) {
-        _manager.requestSerializer = [AFgzipRequestSerializer serializerWithSerializer:[AFJSONRequestSerializer serializer]];
+        _manager.requestSerializer = [AFGzipRequestSerializer serializerWithSerializer:[AFJSONRequestSerializer serializer]];
     }
     //返回
     if (request.responseSerializerType == TFResponseSerializerTypeHTTP) {
@@ -110,7 +110,7 @@
         _manager.responseSerializer = [AFJSONResponseSerializer serializer];
     }
     else if (request.responseSerializerType == TFResponseSerializerTypeGzip) {
-        _manager.responseSerializer = [AFGzipResponseSerializer serializerWithReadingOptions:(NSJSONReadingOptions)0];
+        _manager.responseSerializer = [AFGzipResponseSerializer serializer];
     }
     
     _manager.requestSerializer.timeoutInterval = [request requestTimeoutInterval];
@@ -267,8 +267,8 @@
     if (request.responseSerializerType == TFResponseSerializerTypeHTTP) {
         //http
         //检测是否需要GZIP解压缩
-        NSString *contentEncoding = [[(NSHTTPURLResponse *)sessionDataTask.response allHeaderFields] objectForKey:@"Content-Encoding"];
-        if ([contentEncoding containsString:@"gzip"]) {
+        NSString *contentEncoding = [[(NSHTTPURLResponse *)sessionDataTask.response allHeaderFields] objectForKey:@"Content-Type"];
+        if ([contentEncoding containsString:@"x-tf-gzip-json"]) {
             //gzip 解压缩
             object = [responseObject tfn_gunzippedData];
         }

@@ -10,6 +10,7 @@
 
 @interface AFGzipResponseSerializer : AFHTTPResponseSerializer
 
+- (instancetype)init;
 
 + (instancetype)serializerWithReadingOptions:(NSJSONReadingOptions)readingOptions;
 

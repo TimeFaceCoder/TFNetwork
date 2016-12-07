@@ -42,7 +42,7 @@
 		46A45325921A22AAAE2AC187C79799FF /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 68ACD0E29085C45971D7D537EFF59029 /* UIProgressView+AFNetworking.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		479CACC825CD7960D6315D1C0ADC1AEC /* NSFileManager+Godzippa.m in Sources */ = {isa = PBXBuildFile; fileRef = 375BF30E39C7BD66AF40BD39C214C79A /* NSFileManager+Godzippa.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		47F04CBDF6C54B220F6AEECEF15264D5 /* AFAutoPurgingImageCache.h in Headers */ = {isa = PBXBuildFile; fileRef = B6DFFF73248BC36B38FB13DFC0352D29 /* AFAutoPurgingImageCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4DD2B8F1BE282BC2BA956A640833836D /* AFgzipRequestSerializer.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E55A8D43A5E32E805B9AA4BFF754870 /* AFgzipRequestSerializer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4DD2B8F1BE282BC2BA956A640833836D /* AFGzipRequestSerializer.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E55A8D43A5E32E805B9AA4BFF754870 /* AFGzipRequestSerializer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4DEF1CA98A490E0BB56C690070ABBC95 /* TFNetworkAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5B0ED1AE10719476EE12FB0A602953 /* TFNetworkAgent.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		4EDB39ED6720485DDE4DC191319B9E81 /* GHODict.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D7675851CD0F26D58F707D1F5CDB71C /* GHODict.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4EE3BD6F91C2EEDDE9FA1E2CD4B23F07 /* AFAutoPurgingImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC154668C9C1AED20F338B20F7A9F14 /* AFAutoPurgingImageCache.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
@@ -101,7 +101,7 @@
 		BB8183FB5BB8DCAB244EC6EC6381654A /* GHODictionary-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F11C94E8185BBF0AB7326A9A03A19142 /* GHODictionary-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BC22E83FBE012D2A1B6B72B886832AF4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F64EACEDDA631F60CD6976A6A926271B /* Foundation.framework */; };
 		C26C1CE97A9C3B7C57C47D7A7E05A56F /* Godzippa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C40D13541825D338E5975B847915A5DB /* Godzippa.framework */; };
-		C30B66ED0FE52FB70CA383574D337D27 /* AFgzipRequestSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = BB67D043957090C4D88FB6C8015EB81E /* AFgzipRequestSerializer.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		C30B66ED0FE52FB70CA383574D337D27 /* AFGzipRequestSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = BB67D043957090C4D88FB6C8015EB81E /* AFGzipRequestSerializer.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		C506D1F75908E24D7F3C39CC07888513 /* NSDictionary+MPMessagePack.m in Sources */ = {isa = PBXBuildFile; fileRef = E54CEC831791DB192508BFE4818771D3 /* NSDictionary+MPMessagePack.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		C62CEBDFFE085D648853CC4DCF866DE7 /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = A607945DA8C7BAAF62539B1B05C619F2 /* UIRefreshControl+AFNetworking.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		CA1D419B529917E3313319EBD4ABB43B /* MPMessagePack.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FE90A79D5E5E76BDB46F165D6AEE0C7 /* MPMessagePack.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -239,7 +239,7 @@
 		38D4F81AB13588AAA1FD40C9D99B9685 /* TFRequestProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = TFRequestProtocol.h; sourceTree = "<group>"; };
 		3A14EC9DFFDE8D60107229D9EC953185 /* Pods-TFNetwork_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TFNetwork_Tests-dummy.m"; sourceTree = "<group>"; };
 		3BFFC2320C94819B17FA04A770A83665 /* Pods-TFNetwork_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TFNetwork_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		3E55A8D43A5E32E805B9AA4BFF754870 /* AFgzipRequestSerializer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = AFgzipRequestSerializer.h; sourceTree = "<group>"; };
+		3E55A8D43A5E32E805B9AA4BFF754870 /* AFGzipRequestSerializer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = AFGzipRequestSerializer.h; sourceTree = "<group>"; };
 		3F8A4043C24B70D06CB416101475F82B /* MPMessagePackServer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MPMessagePackServer.m; path = RPC/MPMessagePackServer.m; sourceTree = "<group>"; };
 		40FAB1DA664B9735BFACB46456E7E9E4 /* TFBaseRequest.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = TFBaseRequest.h; sourceTree = "<group>"; };
 		41DDBE516DC22AF04E1D8A89BF937B88 /* TFNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TFNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -322,7 +322,7 @@
 		B9A15A3DAA4202675FAC20551AA9139A /* MPDispatchRequest.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MPDispatchRequest.m; path = RPC/MPDispatchRequest.m; sourceTree = "<group>"; };
 		BA48A55B73E6852B17B38A85C1DA940A /* MPMessagePack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MPMessagePack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAD5C19CFD70F44D6CA9FC3E534A7ADC /* cmp.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = cmp.c; path = MPMessagePack/cmp.c; sourceTree = "<group>"; };
-		BB67D043957090C4D88FB6C8015EB81E /* AFgzipRequestSerializer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = AFgzipRequestSerializer.m; sourceTree = "<group>"; };
+		BB67D043957090C4D88FB6C8015EB81E /* AFGzipRequestSerializer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = AFGzipRequestSerializer.m; sourceTree = "<group>"; };
 		BC16D224A1741588B90F53772BBB6BD4 /* TFNetworkPrivate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = TFNetworkPrivate.m; sourceTree = "<group>"; };
 		C07C39F5AB07BDC69747F648D448C1BE /* MPDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MPDefines.h; path = MPMessagePack/MPDefines.h; sourceTree = "<group>"; };
 		C3547E29FB8555E710A9C3F6635DE7B6 /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIWebView+AFNetworking.m"; path = "UIKit+AFNetworking/UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
@@ -452,8 +452,8 @@
 		1A015D6A28AD32A7CEA150AC598EF5B5 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				3E55A8D43A5E32E805B9AA4BFF754870 /* AFgzipRequestSerializer.h */,
-				BB67D043957090C4D88FB6C8015EB81E /* AFgzipRequestSerializer.m */,
+				3E55A8D43A5E32E805B9AA4BFF754870 /* AFGzipRequestSerializer.h */,
+				BB67D043957090C4D88FB6C8015EB81E /* AFGzipRequestSerializer.m */,
 				9575CDA5D61AD7A833FD533DB2932A9A /* AFGzipResponseSerializer.h */,
 				2F53476B9E9ADA3645958CF0EFD5557E /* AFGzipResponseSerializer.m */,
 				844526E0A99D4AE9671A8B6F3CFE9764 /* NSData+TFNGZIP.h */,
@@ -890,7 +890,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4DD2B8F1BE282BC2BA956A640833836D /* AFgzipRequestSerializer.h in Headers */,
+				4DD2B8F1BE282BC2BA956A640833836D /* AFGzipRequestSerializer.h in Headers */,
 				0C19546412C539A78CA68BB4166CAFB2 /* AFGzipResponseSerializer.h in Headers */,
 				22EA37C41A4575303EAE3B433B634B2A /* NSData+TFNGZIP.h in Headers */,
 				6E8398649309563798DBCADDB9498DCA /* TFBaseRequest.h in Headers */,
@@ -1087,7 +1087,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C30B66ED0FE52FB70CA383574D337D27 /* AFgzipRequestSerializer.m in Sources */,
+				C30B66ED0FE52FB70CA383574D337D27 /* AFGzipRequestSerializer.m in Sources */,
 				CF876C36EF06A7DEEF9839FD28CA6CDF /* AFGzipResponseSerializer.m in Sources */,
 				4024B7914ACD2E957AED93CA681A2D54 /* NSData+TFNGZIP.m in Sources */,
 				893E794204F7D97CF726513A25EEF790 /* TFBaseRequest.m in Sources */,

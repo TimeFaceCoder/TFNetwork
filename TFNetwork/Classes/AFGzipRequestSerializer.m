@@ -6,20 +6,20 @@
 //
 //
 
-#import "AFgzipRequestSerializer.h"
+#import "AFGzipRequestSerializer.h"
 #import <Godzippa/Godzippa.h>
 
 
 
-@interface AFgzipRequestSerializer ()
+@interface AFGzipRequestSerializer ()
 
 @property (readwrite, nonatomic, strong) id <AFURLRequestSerialization> serializer;
 @end
 
-@implementation AFgzipRequestSerializer
+@implementation AFGzipRequestSerializer
 
 + (instancetype)serializerWithSerializer:(id<AFURLRequestSerialization>)serializer {
-    AFgzipRequestSerializer *gzipSerializer = [self serializer];
+    AFGzipRequestSerializer *gzipSerializer = [self serializer];
     gzipSerializer.serializer = serializer;
     
     return gzipSerializer;
@@ -48,7 +48,8 @@
         if (compressedData && !compressionError) {
             [mutableRequest setValue:@"gzip" forHTTPHeaderField:@"Content-Encoding"];
             [mutableRequest setHTTPBody:compressedData];
-            [mutableRequest setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+            //时光流影框架使用自定义header头来标识是否使用gzip压缩数据
+            [mutableRequest setValue:@"application/application/x-tf-gzip-json" forHTTPHeaderField:@"Content-Type"];
         } else {
             if (error) {
                 *error = compressionError;
@@ -85,7 +86,7 @@
 #pragma mark - NSCopying
 
 - (id)copyWithZone:(NSZone *)zone {
-    AFgzipRequestSerializer *serializer = [[[self class] allocWithZone:zone] init];
+    AFGzipRequestSerializer *serializer = [[[self class] allocWithZone:zone] init];
     serializer.serializer = self.serializer;
     
     return serializer;

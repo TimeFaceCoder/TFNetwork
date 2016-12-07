@@ -65,6 +65,10 @@ static id AFJSONObjectByRemovingKeysWithNullValues(id JSONObject, NSJSONReadingO
 
 
 
++ (instancetype)serializer {
+    return [self serializerWithReadingOptions:(NSJSONReadingOptions)0];
+}
+
 + (instancetype)serializerWithReadingOptions:(NSJSONReadingOptions)readingOptions {
     AFGzipResponseSerializer *serializer = [[self alloc] init];
     serializer.readingOptions = readingOptions;
@@ -77,13 +81,12 @@ static id AFJSONObjectByRemovingKeysWithNullValues(id JSONObject, NSJSONReadingO
     if (!self) {
         return nil;
     }
-    
-    self.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", nil];
+    self.acceptableContentTypes = [NSSet setWithObjects:@"application/x-tf-gzip-json",@"application/json", @"text/json", @"text/javascript", nil];
     
     return self;
 }
 
-#pragma mark - AFURLResponseSerialization
+#pragma mark - AFGzipResponseSerializer
 
 - (id)responseObjectForResponse:(NSURLResponse *)response
                            data:(NSData *)data
@@ -103,9 +106,22 @@ static id AFJSONObjectByRemovingKeysWithNullValues(id JSONObject, NSJSONReadingO
     
     BOOL isSpace = [data isEqualToData:[NSData dataWithBytes:" " length:1]];
     if (data.length > 0 && !isSpace) {
-        NSError *decompressingError = nil;
-        NSData *decompressingData = [data dataByGZipDecompressingDataWithError:&decompressingError];
-        responseObject = [NSJSONSerialization JSONObjectWithData:decompressingData options:self.readingOptions error:&serializationError];
+        
+        //判断是否gzip压缩过的返回数据
+        NSString *contentType = [[(NSHTTPURLResponse *)response allHeaderFields] objectForKey:@"Content-Type"];
+        if ([contentType containsString:@"x-tf-gzip-json"]) {
+            NSError *decompressingError = nil;
+            NSData *decompressingData = [data dataByGZipDecompressingDataWithError:&decompressingError];
+            responseObject = [NSJSONSerialization JSONObjectWithData:decompressingData
+                                                             options:self.readingOptions
+                                                               error:&serializationError];
+        }
+        else {
+            responseObject = [NSJSONSerialization JSONObjectWithData:data
+                                                             options:self.readingOptions
+                                                               error:&serializationError];
+        }
+        
     } else {
         return nil;
     }
@@ -119,6 +135,37 @@ static id AFJSONObjectByRemovingKeysWithNullValues(id JSONObject, NSJSONReadingO
     }
     
     return responseObject;
+}
+
+#pragma mark - NSSecureCoding
+
+- (instancetype)initWithCoder:(NSCoder *)decoder {
+    self = [super initWithCoder:decoder];
+    if (!self) {
+        return nil;
+    }
+    
+    self.readingOptions = [[decoder decodeObjectOfClass:[NSNumber class] forKey:NSStringFromSelector(@selector(readingOptions))] unsignedIntegerValue];
+    self.removesKeysWithNullValues = [[decoder decodeObjectOfClass:[NSNumber class] forKey:NSStringFromSelector(@selector(removesKeysWithNullValues))] boolValue];
+    
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)coder {
+    [super encodeWithCoder:coder];
+    
+    [coder encodeObject:@(self.readingOptions) forKey:NSStringFromSelector(@selector(readingOptions))];
+    [coder encodeObject:@(self.removesKeysWithNullValues) forKey:NSStringFromSelector(@selector(removesKeysWithNullValues))];
+}
+
+#pragma mark - NSCopying
+
+- (instancetype)copyWithZone:(NSZone *)zone {
+    AFGzipResponseSerializer *serializer = [[[self class] allocWithZone:zone] init];
+    serializer.readingOptions = self.readingOptions;
+    serializer.removesKeysWithNullValues = self.removesKeysWithNullValues;
+    
+    return serializer;
 }
 
 @end
