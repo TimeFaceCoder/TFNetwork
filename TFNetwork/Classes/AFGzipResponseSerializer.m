@@ -109,19 +109,20 @@ static id AFJSONObjectByRemovingKeysWithNullValues(id JSONObject, NSJSONReadingO
         
         //判断是否gzip压缩过的返回数据
         NSString *contentType = [[(NSHTTPURLResponse *)response allHeaderFields] objectForKey:@"Content-Type"];
-        if ([contentType containsString:@"x-tf-gzip-json"]) {
-            NSError *decompressingError = nil;
-            NSData *decompressingData = [data dataByGZipDecompressingDataWithError:&decompressingError];
-            responseObject = [NSJSONSerialization JSONObjectWithData:decompressingData
-                                                             options:self.readingOptions
-                                                               error:&serializationError];
+        responseObject = [NSJSONSerialization JSONObjectWithData:data
+                                                         options:self.readingOptions
+                                                           error:&serializationError];
+        if (serializationError) {
+            //尝试进行gzip解压后在进行JSON序列化
+            if ([contentType containsString:@"x-tf-gzip-json"]) {
+                NSError *decompressingError = nil;
+                NSData *decompressingData = [data dataByGZipDecompressingDataWithError:&decompressingError];
+                responseObject = [NSJSONSerialization JSONObjectWithData:decompressingData
+                                                                 options:self.readingOptions
+                                                                   error:&serializationError];
+            }
+            
         }
-        else {
-            responseObject = [NSJSONSerialization JSONObjectWithData:data
-                                                             options:self.readingOptions
-                                                               error:&serializationError];
-        }
-        
     } else {
         return nil;
     }

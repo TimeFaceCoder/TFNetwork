@@ -46,9 +46,10 @@
         
         if (compressedData && !compressionError) {
             [mutableRequest setValue:@"gzip" forHTTPHeaderField:@"Content-Encoding"];
+            [mutableRequest setValue:@"gzip" forHTTPHeaderField:@"Accept-Encoding"];
             [mutableRequest setHTTPBody:compressedData];
             //时光流影框架使用自定义header头来标识是否使用gzip压缩数据
-            [mutableRequest setValue:@"application/application/x-tf-gzip-json" forHTTPHeaderField:@"Content-Type"];
+            [mutableRequest setValue:@"application/x-tf-gzip-json" forHTTPHeaderField:@"Content-Type"];
         } else {
             if (error) {
                 *error = compressionError;
