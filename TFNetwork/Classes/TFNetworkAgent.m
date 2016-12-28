@@ -16,7 +16,6 @@
 
 @implementation TFNetworkAgent {
     
-    AFHTTPSessionManager *_manager;
     TFNetworkConfig *_config;
     NSMutableDictionary *_requestsRecord;
 }
@@ -34,10 +33,7 @@
     self = [super init];
     if (self) {
         _config = [TFNetworkConfig sharedInstance];
-        _manager = [AFHTTPSessionManager manager];
         _requestsRecord = [NSMutableDictionary dictionary];
-        _manager.operationQueue.maxConcurrentOperationCount = 4;
-        _manager.securityPolicy = _config.securityPolicy;
     }
     return self;
 }
@@ -71,6 +67,10 @@
 }
 
 - (void)addRequest:(TFBaseRequest *)request {
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.operationQueue.maxConcurrentOperationCount = 4;
+    manager.securityPolicy = _config.securityPolicy;
+
     TFRequestMethod method = [request requestMethod];
     NSString *url = [self buildRequestUrl:request];
     id param = request.requestArgument;
@@ -93,31 +93,31 @@
     AFConstructingBlock constructingBlock = [request constructingBodyBlock];
     //请求
     if (request.requestSerializerType == TFRequestSerializerTypeHTTP) {
-        _manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+        manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     } else if (request.requestSerializerType == TFRequestSerializerTypeJSON) {
-        _manager.requestSerializer = [AFJSONRequestSerializer serializer];
+        manager.requestSerializer = [AFJSONRequestSerializer serializer];
     } else if (request.requestSerializerType == TFRequestSerializerTypeMsgPack) {
-        _manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+        manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     } else if (request.requestSerializerType == TFRequestSerializerTypeGzip) {
-        _manager.requestSerializer = [AFGzipRequestSerializer serializerWithSerializer:[AFJSONRequestSerializer serializer]];
+        manager.requestSerializer = [AFGzipRequestSerializer serializerWithSerializer:[AFJSONRequestSerializer serializer]];
     }
     //返回
     if (request.responseSerializerType == TFResponseSerializerTypeHTTP) {
-        _manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+        manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     }
     else if (request.responseSerializerType == TFResponseSerializerTypeJSON) {
-        _manager.responseSerializer = [AFJSONResponseSerializer serializer];
+        manager.responseSerializer = [AFJSONResponseSerializer serializer];
     }
     else if (request.responseSerializerType == TFResponseSerializerTypeGzip) {
-        _manager.responseSerializer = [AFGzipResponseSerializer serializer];
+        manager.responseSerializer = [AFGzipResponseSerializer serializer];
     }
     
-    _manager.requestSerializer.timeoutInterval = [request requestTimeoutInterval];
+    manager.requestSerializer.timeoutInterval = [request requestTimeoutInterval];
     
     // if api need server username and password
     NSArray *authorizationHeaderFieldArray = [request requestAuthorizationHeaderFieldArray];
     if (authorizationHeaderFieldArray != nil) {
-        [_manager.requestSerializer setAuthorizationHeaderFieldWithUsername:(NSString *)authorizationHeaderFieldArray.firstObject
+        [manager.requestSerializer setAuthorizationHeaderFieldWithUsername:(NSString *)authorizationHeaderFieldArray.firstObject
                                                                    password:(NSString *)authorizationHeaderFieldArray.lastObject];
     }
     
@@ -127,7 +127,7 @@
         for (id httpHeaderField in headerFieldValueDictionary.allKeys) {
             id value = headerFieldValueDictionary[httpHeaderField];
             if ([httpHeaderField isKindOfClass:[NSString class]] && [value isKindOfClass:[NSString class]]) {
-                [_manager.requestSerializer setValue:(NSString *)value forHTTPHeaderField:(NSString *)httpHeaderField];
+                [manager.requestSerializer setValue:(NSString *)value forHTTPHeaderField:(NSString *)httpHeaderField];
             } else {
                 TFNLog(@"Error, class of key/value in headerFieldValueDictionary should be NSString.");
             }
@@ -137,7 +137,7 @@
     TFNLog(@"header - %@\n url - %@\n param - %@", headerFieldValueDictionary, url, param);
     // request.requestOperation 部分功能缺失
     if (method == TFRequestMethodGet) {
-        request.sessionDataTask = [_manager GET:url
+        request.sessionDataTask = [manager GET:url
                                      parameters:param
                                        progress:NULL
                                         success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -147,7 +147,7 @@
                                         }];
     } else if (method == TFRequestMethodPost) {
         if (constructingBlock != nil) {
-            request.sessionDataTask = [_manager POST:url
+            request.sessionDataTask = [manager POST:url
                                           parameters:param
                            constructingBodyWithBlock:constructingBlock
                                             progress:^(NSProgress * _Nonnull uploadProgress) {
@@ -160,7 +160,7 @@
                                            [self handleRequestResult:task responseObject:nil error:error];
                                        }];
         } else {
-            request.sessionDataTask = [_manager POST:url
+            request.sessionDataTask = [manager POST:url
                                           parameters:param
                                             progress:^(NSProgress * _Nonnull uploadProgress) {
                                                 
@@ -175,7 +175,7 @@
                                        }];
         }
     } else if (method == TFRequestMethodHead) {
-        request.sessionDataTask = [_manager HEAD:url
+        request.sessionDataTask = [manager HEAD:url
                                       parameters:param
                                          success:^(NSURLSessionDataTask * _Nonnull task)
                                    {
@@ -186,7 +186,7 @@
                                        [self handleRequestResult:task responseObject:nil error:error];
                                    }];
     } else if (method == TFRequestMethodPut) {
-        request.sessionDataTask = [_manager PUT:url
+        request.sessionDataTask = [manager PUT:url
                                      parameters:param
                                         success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
                                    {
@@ -197,7 +197,7 @@
                                        [self handleRequestResult:task responseObject:nil error:error];
                                    }];
     } else if (method == TFRequestMethodDelete) {
-        request.sessionDataTask = [_manager DELETE:url
+        request.sessionDataTask = [manager DELETE:url
                                         parameters:param
                                            success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
                                    {
@@ -208,7 +208,7 @@
                                        [self handleRequestResult:task responseObject:nil error:error];
                                    }];
     } else if (method == TFRequestMethodPatch) {
-        request.sessionDataTask = [_manager PATCH:url
+        request.sessionDataTask = [manager PATCH:url
                                        parameters:param
                                           success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
                                    {
