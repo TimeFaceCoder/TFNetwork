@@ -205,7 +205,7 @@
 		2C345E1FEA900F983F7C303801A2869A /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImageView+AFNetworking.h"; path = "UIKit+AFNetworking/UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		2EDA32CBF4A55F2895644D227EBF7551 /* TFBatchRequestAgent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = TFBatchRequestAgent.m; sourceTree = "<group>"; };
 		2FD731555444D44FA1A996B9320FBC89 /* UIActivityIndicatorView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIActivityIndicatorView+AFNetworking.h"; path = "UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.h"; sourceTree = "<group>"; };
-		30FE42C6C848301B2C54056A5093AE15 /* GHODictionary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = GHODictionary.framework; path = GHODictionary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		30FE42C6C848301B2C54056A5093AE15 /* GHODictionary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GHODictionary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		33932359398F5ABC2CC79E3ADE58DA33 /* NSDictionary+MPMessagePack.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+MPMessagePack.m"; path = "MPMessagePack/NSDictionary+MPMessagePack.m"; sourceTree = "<group>"; };
 		3734BFC147412D7B5F79FCA905A23308 /* AFURLSessionManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLSessionManager.h; path = AFNetworking/AFURLSessionManager.h; sourceTree = "<group>"; };
 		392FC57A556FB1F68C17ABA43A3B49C1 /* TFChainRequestAgent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = TFChainRequestAgent.h; sourceTree = "<group>"; };
@@ -250,19 +250,19 @@
 		8272BD4724778D317E63B8E6BE68207A /* TFNetwork.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = TFNetwork.h; sourceTree = "<group>"; };
 		83B82CA1B8D0F9B6C9FB04D3F6FAE279 /* UIButton+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIButton+AFNetworking.h"; path = "UIKit+AFNetworking/UIButton+AFNetworking.h"; sourceTree = "<group>"; };
 		84FFDC42E52A6B9CC5018B1B11F44F96 /* Pods-TFNetwork_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TFNetwork_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		88BA1052D4C4CA583883E7EE21843B76 /* Pods-TFNetwork_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-TFNetwork_Tests.modulemap"; sourceTree = "<group>"; };
+		88BA1052D4C4CA583883E7EE21843B76 /* Pods-TFNetwork_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-TFNetwork_Tests.modulemap"; sourceTree = "<group>"; };
 		8CB84D8EE7B9C1F2BC78C035A4A6694D /* TFRequest.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = TFRequest.m; sourceTree = "<group>"; };
 		8F605DD5B24396F18621E26A93B2658F /* AFNetworking-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AFNetworking-dummy.m"; sourceTree = "<group>"; };
 		90CA900E5CB0B0D1FFBEBA82619DB53F /* MPRequest.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MPRequest.m; path = RPC/MPRequest.m; sourceTree = "<group>"; };
 		9181CD54AE4D26DBC0B61CEE8D5990E0 /* MPMessagePack.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MPMessagePack.xcconfig; sourceTree = "<group>"; };
 		91B3A9CEF94F36F07ADC261AA6661985 /* AFNetworking-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AFNetworking-prefix.pch"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		970AEB05E445D558AC7813FB23DC8314 /* MPMessagePackServer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MPMessagePackServer.h; path = RPC/MPMessagePackServer.h; sourceTree = "<group>"; };
 		9723BC5E9A5B41DD0E0C5927DDFB5A85 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		9B8E86CC74409B657A802C4027317AEF /* Pods-TFNetwork_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TFNetwork_Example-umbrella.h"; sourceTree = "<group>"; };
 		9E17DD3D9ED8B3E1461DF6BB35BF8C63 /* Pods-TFNetwork_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TFNetwork_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		9ECC54CB90542062F96A9A859CAFED09 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
-		9FA6105EB9C9884BD3CD5C51B2007D1D /* GHODictionary.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = GHODictionary.modulemap; sourceTree = "<group>"; };
+		9FA6105EB9C9884BD3CD5C51B2007D1D /* GHODictionary.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = GHODictionary.modulemap; sourceTree = "<group>"; };
 		A0CFEEBAB2C0B85325D2A1AB1B720FA8 /* UIProgressView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIProgressView+AFNetworking.h"; path = "UIKit+AFNetworking/UIProgressView+AFNetworking.h"; sourceTree = "<group>"; };
 		A36D6BF2FE5D062B010CBB3A5503321C /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFHTTPSessionManager.m; path = AFNetworking/AFHTTPSessionManager.m; sourceTree = "<group>"; };
 		A5659E773FC80E2CD0CDEA5040E087FF /* AFGzipRequestSerializer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = AFGzipRequestSerializer.m; sourceTree = "<group>"; };
@@ -283,13 +283,13 @@
 		C1CC78193A0B1F24FBECBD23E654CAFA /* MPMessagePackReader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MPMessagePackReader.m; path = MPMessagePack/MPMessagePackReader.m; sourceTree = "<group>"; };
 		C3BDAE1518BC6D44FA05BE1FBF846446 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
 		C49C9FCB40442EA429075715AEC71AC1 /* MPLog.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MPLog.h; path = MPMessagePack/MPLog.h; sourceTree = "<group>"; };
-		C50D0988F98EE576F101777D771370FE /* MPMessagePack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MPMessagePack.framework; path = MPMessagePack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C695BE7828499D2B026B369D8BB7E6DC /* cmp.c */ = {isa = PBXFileReference; includeInIndex = 1; name = cmp.c; path = MPMessagePack/cmp.c; sourceTree = "<group>"; };
+		C50D0988F98EE576F101777D771370FE /* MPMessagePack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MPMessagePack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C695BE7828499D2B026B369D8BB7E6DC /* cmp.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = cmp.c; path = MPMessagePack/cmp.c; sourceTree = "<group>"; };
 		C796516475AC13C5F6C2EDA1834D06EE /* MPMessagePackReader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MPMessagePackReader.h; path = MPMessagePack/MPMessagePackReader.h; sourceTree = "<group>"; };
-		CA3D373CA91F49D425AE19D1E490527E /* Pods_TFNetwork_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_TFNetwork_Example.framework; path = "Pods-TFNetwork_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA3D373CA91F49D425AE19D1E490527E /* Pods_TFNetwork_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TFNetwork_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA97F3C72F5BDC30D00FD5D1C354CB58 /* MPMessagePack-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MPMessagePack-umbrella.h"; sourceTree = "<group>"; };
-		CD4AF09514A9D31DA3079B464429E76A /* Pods-TFNetwork_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-TFNetwork_Example.modulemap"; sourceTree = "<group>"; };
-		CFE0FCC497C883BA5F73B43C616C6587 /* TFNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = TFNetwork.framework; path = TFNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD4AF09514A9D31DA3079B464429E76A /* Pods-TFNetwork_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-TFNetwork_Example.modulemap"; sourceTree = "<group>"; };
+		CFE0FCC497C883BA5F73B43C616C6587 /* TFNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TFNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFEF4C2BC880831F7BCEF03852B414C4 /* GHODictionary-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GHODictionary-prefix.pch"; sourceTree = "<group>"; };
 		D05194E0F4F5E3F9E663F109ABBE9540 /* TFChainRequest.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = TFChainRequest.h; sourceTree = "<group>"; };
 		D0F31F652732C621F87C60CE6E7D6423 /* TFNetwork.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TFNetwork.xcconfig; sourceTree = "<group>"; };
@@ -298,19 +298,19 @@
 		D1EE9630B2A4D6FF0D2FAA92B2A8A81F /* GHODict.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GHODict.m; path = GHODictionary/GHODict.m; sourceTree = "<group>"; };
 		D275CE9C72A9060D29DD7A4F9A4B3909 /* TFNetwork-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TFNetwork-umbrella.h"; sourceTree = "<group>"; };
 		D37C80A5154B8E43A87C52B6DF73407F /* TFNetworkAgent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = TFNetworkAgent.m; sourceTree = "<group>"; };
-		D3D3F86876BC9E7650A7EF0C0F09B960 /* Pods_TFNetwork_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_TFNetwork_Tests.framework; path = "Pods-TFNetwork_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3D3F86876BC9E7650A7EF0C0F09B960 /* Pods_TFNetwork_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TFNetwork_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D564CDBF008B4DE9C6E5CE93D1C162F7 /* NSData+TFNGZIP.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSData+TFNGZIP.h"; sourceTree = "<group>"; };
 		D5A4FBABCB9BFA50DA7D04A4FFE1C33E /* AFGzipResponseSerializer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = AFGzipResponseSerializer.h; sourceTree = "<group>"; };
 		D6012A7C4BCC611CD5A122A489F4F858 /* Pods-TFNetwork_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TFNetwork_Tests-umbrella.h"; sourceTree = "<group>"; };
 		D6C36D726B74B09ABF4FDD12BA2C68CB /* TFRequestProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = TFRequestProtocol.h; sourceTree = "<group>"; };
 		D76CC6E514A2FA56C1B53BC5DEFE326F /* NSArray+MPMessagePack.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSArray+MPMessagePack.m"; path = "MPMessagePack/NSArray+MPMessagePack.m"; sourceTree = "<group>"; };
-		D7A8D3B3D352691613A41183C0B1F853 /* TFNetwork.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = TFNetwork.modulemap; sourceTree = "<group>"; };
+		D7A8D3B3D352691613A41183C0B1F853 /* TFNetwork.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = TFNetwork.modulemap; sourceTree = "<group>"; };
 		D860C4101D2D49E358E82E5C10BFADBB /* AFAutoPurgingImageCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFAutoPurgingImageCache.h; path = "UIKit+AFNetworking/AFAutoPurgingImageCache.h"; sourceTree = "<group>"; };
 		DEF9BD5ECF84720DD58E8F1E06EB7903 /* AFURLRequestSerialization.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFURLRequestSerialization.m; path = AFNetworking/AFURLRequestSerialization.m; sourceTree = "<group>"; };
 		DF2C2053F97DB255B0026D39AC0440C2 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E1119902FAC98C434983C1468D349C9F /* AFNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AFNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E142AC3A5B610DE759F3BCE44D4228FD /* MPDispatchRequest.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MPDispatchRequest.m; path = RPC/MPDispatchRequest.m; sourceTree = "<group>"; };
-		E1A785E02391412AE0BFCABBA6749EAB /* AFNetworking.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = AFNetworking.modulemap; sourceTree = "<group>"; };
+		E1A785E02391412AE0BFCABBA6749EAB /* AFNetworking.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = AFNetworking.modulemap; sourceTree = "<group>"; };
 		E1AC054447EF717D7AD4FE3D4B43E459 /* MPMessagePack-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MPMessagePack-prefix.pch"; sourceTree = "<group>"; };
 		E3C40E8DF6F98A6BF4B42D6192D9FF21 /* AFImageDownloader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFImageDownloader.m; path = "UIKit+AFNetworking/AFImageDownloader.m"; sourceTree = "<group>"; };
 		E51A950E487B5C777767EBE78A69B576 /* NSData+MPMessagePack.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSData+MPMessagePack.h"; path = "MPMessagePack/NSData+MPMessagePack.h"; sourceTree = "<group>"; };
@@ -324,8 +324,8 @@
 		F45174BE64D576C858F5DDB5084AC897 /* MPDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MPDefines.h; path = MPMessagePack/MPDefines.h; sourceTree = "<group>"; };
 		F465927FFCE67CCF71715129FFA7718B /* GHODictionary-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "GHODictionary-dummy.m"; sourceTree = "<group>"; };
 		F5574BB485D0817EC65A21E88C22D781 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F68FD091A207494D3D70E09FC551FF70 /* MPMessagePack.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = MPMessagePack.modulemap; sourceTree = "<group>"; };
-		FD1A98C30AE86C60BF987D8C8C159CBB /* AFNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AFNetworking.framework; path = AFNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F68FD091A207494D3D70E09FC551FF70 /* MPMessagePack.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = MPMessagePack.modulemap; sourceTree = "<group>"; };
+		FD1A98C30AE86C60BF987D8C8C159CBB /* AFNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AFNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDE44903136144E06F6E21794F224155 /* Pods-TFNetwork_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TFNetwork_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		FEFDBF62472F3B26C4D1E1FB1277FC0B /* Pods-TFNetwork_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TFNetwork_Tests-resources.sh"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -420,7 +420,6 @@
 				8CB84D8EE7B9C1F2BC78C035A4A6694D /* TFRequest.m */,
 				D6C36D726B74B09ABF4FDD12BA2C68CB /* TFRequestProtocol.h */,
 			);
-			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -559,7 +558,6 @@
 				33932359398F5ABC2CC79E3ADE58DA33 /* NSDictionary+MPMessagePack.m */,
 				A7455E31B3D94D181AA808731975ED05 /* Support Files */,
 			);
-			name = MPMessagePack;
 			path = MPMessagePack;
 			sourceTree = "<group>";
 		};
@@ -595,7 +593,6 @@
 				B50365432B10792507EE55CFF9382ACA /* GHODictionary.h */,
 				2B7EADDA595192CBB85088A9FA904A09 /* Support Files */,
 			);
-			name = GHODictionary;
 			path = GHODictionary;
 			sourceTree = "<group>";
 		};
@@ -629,7 +626,6 @@
 			children = (
 				0C62ED579C96FAEE10591274E7C39CF8 /* Classes */,
 			);
-			name = TFNetwork;
 			path = TFNetwork;
 			sourceTree = "<group>";
 		};
@@ -725,7 +721,6 @@
 				16CE51711FB45B2A5E31896920E26878 /* Support Files */,
 				106813302A8DC3B1EA4AB282525FD16B /* UIKit */,
 			);
-			name = AFNetworking;
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
@@ -957,7 +952,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 1000;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1132,20 +1127,32 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"POD_CONFIGURATION_DEBUG=1",
@@ -1312,19 +1319,31 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"POD_CONFIGURATION_RELEASE=1",
 					"$(inherited)",

@@ -276,17 +276,23 @@
     if (request.responseSerializerType == TFResponseSerializerTypeMsgPack) {
         NSError *error = nil;
         //解析msg pack
-        request.responseObject = [MPMessagePackReader readData:object error:&error];
-        if (error) {
-            request.responseObject = responseObject;
+        id msgObject = [MPMessagePackReader readData:object error:&error];
+        if (!error) {
+            object = msgObject;
         }
     }
-    else {
-        request.responseObject = object;
-    }
+    request.responseObject = object;
     if (request) {
         BOOL succeed = [self checkResult:request];
         if (succeed) {
+            //判断是否需要保存缓存数据
+            if ([request isKindOfClass:[TFRequest class]]) {
+                if ([(TFRequest *)request isFirstLoadFromCache]) {
+                    //更新缓存数据
+                    [(TFRequest *)request saveResponseObjectToCacheFile:object];
+                }
+                ((TFRequest *)request).isDataFromCache = NO;
+            }
             [request toggleAccessoriesWillStopCallBack];
             [request requestCompleteFilter];
             if (request.delegate != nil) {

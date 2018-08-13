@@ -16,9 +16,7 @@
 
 @end
 
-@implementation TFRequest {
-    BOOL _dataFromCache;
-}
+@implementation TFRequest
 
 - (NSInteger)cacheTimeInSeconds {
     return -1;
@@ -124,11 +122,27 @@
 }
 
 - (void)start {
+    _hasLoadedDataFromCache = NO;
     if (self.ignoreCache) {
         [super start];
         return;
     }
     
+    NSString *path = [self cacheFilePath];
+    if ([self isFirstLoadFromCache]) {
+        _cacheResponseObject = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+        if (_cacheResponseObject == nil) {
+            [super start];
+        }
+        else {
+            _hasLoadedDataFromCache = YES;
+            [self _loadFromCacheSuccessComplete];
+            if ([self isFirstLoadFromCacheRequestDataImmediately]) {
+                [super start];
+            }
+        }
+        return;
+    }
     // check cache time
     if ([self cacheTimeInSeconds] < 0) {
         [super start];
@@ -143,7 +157,6 @@
     }
     
     // check cache existance
-    NSString *path = [self cacheFilePath];
     NSFileManager *fileManager = [NSFileManager defaultManager];
     if (![fileManager fileExistsAtPath:path isDirectory:nil]) {
         [super start];
@@ -163,18 +176,26 @@
         [super start];
         return;
     }
-    
-    _dataFromCache = YES;
+    [self _loadFromCacheSuccessComplete];
+}
+
+- (void)_loadFromCacheSuccessComplete {
+    _isDataFromCache = YES;
     [self requestCompleteFilter];
     TFRequest *strongSelf = self;
     [strongSelf.delegate requestFinished:strongSelf];
     if (strongSelf.successCompletionBlock) {
         strongSelf.successCompletionBlock(strongSelf);
     }
-    [strongSelf clearCompletionBlock];
+    _cacheResponseObject = nil;
 }
 
 - (void)startWithoutCache {
+    [super start];
+}
+
+- (void)startWithoutCacheCompletionBlockWithSuccess:(TFRequestCompletionBlock)success failure:(TFRequestCompletionBlock)failure {
+    [self setCompletionBlockWithSuccess:success failure:failure];
     [super start];
 }
 
@@ -191,10 +212,6 @@
     }
 }
 
-- (BOOL)isDataFromCache {
-    return _dataFromCache;
-}
-
 - (BOOL)isCacheVersionExpired {
     // check cache version
     long long cacheVersionFileContent = [self cacheVersionFileContent];
@@ -205,8 +222,16 @@
     }
 }
 
+- (BOOL)isFirstLoadFromCache {
+    return NO;
+}
+
+- (BOOL)isFirstLoadFromCacheRequestDataImmediately {
+    return NO;
+}
+
 - (id)responseObject {
-    if (_cacheResponseObject) {
+    if (_cacheResponseObject && _isDataFromCache) {
         return _cacheResponseObject;
     } else {
         return [super responseObject];
@@ -223,16 +248,18 @@
 // 手动将其他请求的JsonResponse写入该请求的缓存
 // 比如AddNoteApi, UpdateNoteApi都会获得Note，且其与GetNoteApi共享缓存，可以通过这个接口写入GetNoteApi缓存
 - (void)saveResponseObjectToCacheFile:(id)jsonResponse {
-    if ([self cacheTimeInSeconds] > 0 && ![self isDataFromCache]) {
+    if (self.isFirstLoadFromCache|[self cacheTimeInSeconds] > 0 && ![self isDataFromCache]) {
         NSDictionary *json = jsonResponse;
         if (json != nil) {
             [NSKeyedArchiver archiveRootObject:json toFile:[self cacheFilePath]];
             [NSKeyedArchiver archiveRootObject:@([self cacheVersion]) toFile:[self cacheVersionFilePath]];
         }
+
     }
 }
 
 - (NSDictionary *)requestHeaderFieldValueDictionary {
     return [[TFNetworkConfig sharedInstance] requestHeaderFieldValueDictionary];
 }
+
 @end
